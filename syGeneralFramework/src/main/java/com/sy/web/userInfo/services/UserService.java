@@ -1,13 +1,24 @@
 package com.sy.web.userInfo.services;
 
+import com.sy.modules.pojo.User;
+
 /**
- * @Author:liangjilong
- * @Date:2015年10月29日-下午3:45:04
- * @Email:jilonglinag@sina.com
+ * @Author:Darren
+ * @Date:2016年12月26日
  * @Version:1.0
- * @Description:
+ * @Description:services接口
  */
-public interface UserService   {
-	public 	Boolean queryUser();
-	public 	Boolean register();
+
+public interface UserService {
+	/**
+	 * @Description:登录查询
+	 * @return
+	 */
+	public Boolean queryUser(User user);
+
+	/**
+	 * @Description:注册信息
+	 * @return
+	 */
+	public Boolean register();
 }

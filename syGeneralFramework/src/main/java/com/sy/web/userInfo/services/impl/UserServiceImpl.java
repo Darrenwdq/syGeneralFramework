@@ -3,36 +3,37 @@ package com.sy.web.userInfo.services.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sy.modules.pojo.User;
 import com.sy.web.userInfo.dao.UserDao;
 import com.sy.web.userInfo.services.UserService;
 
 /**
- * @Author:liangjilong
- * @Date:2015年10月29日-下午3:45:04
- * @Email:jilonglinag@sina.com
+ * @Author:Darren
+ * @Date:2016年12月26日
  * @Version:1.0
- * @Description:
+ * @Description:Services实现类，写一些业务逻辑
  */
 @Service
 @SuppressWarnings("all")
 public class UserServiceImpl implements UserService {
 
-	@Autowired UserDao userDao;
-
+	@Autowired
+	UserDao userDao;
 
 	@Override
-	public Boolean queryUser() {
-		int count = userDao.queryUser();
+	public Boolean queryUser(User user) {
+		int count = userDao.queryUser(user);
 		System.out.println(count);
-		if (count != 0)
+		if (count != 0) {
 			return true;
-		else
+		} else {
 			return false;
+		}
 	}
-	
+
+	@Override
 	public Boolean register() {
-		int count = userDao.queryUser();
-		
+		int count = userDao.register();
 		return false;
 	}
 

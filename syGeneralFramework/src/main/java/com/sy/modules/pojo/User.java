@@ -5,19 +5,12 @@ import com.sy.commons.persistence.annotation.Column;
 import com.sy.commons.persistence.annotation.Id;
 import com.sy.commons.persistence.annotation.Relation;
 import com.sy.commons.persistence.annotation.Table;
-
-/**
- * @Author:liangjilong
- * @Date:2015年10月29日-下午3:45:04
- * @Email:jilonglinag@sina.com
- * @Version:1.0
- * @Description:
- */
 /**
  * 
  * @author:Darren
  * @Date:2016-12-26
- *
+ * @Version:1.0
+ * @Description:
  */
 @Relation(User.TABLE)
 @SuppressWarnings("all")

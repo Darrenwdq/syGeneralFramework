@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	哥们这是Spring MVC ！
+	登录成功了。
 </body>
 </html>
