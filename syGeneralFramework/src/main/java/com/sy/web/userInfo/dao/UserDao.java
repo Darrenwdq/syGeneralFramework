@@ -1,8 +1,5 @@
 package com.sy.web.userInfo.dao;
 
-import java.util.List;
-import java.util.Map;
-
 /**
  * @Author:liangjilong
  * @Date:2015年10月29日-下午3:45:04
@@ -10,8 +7,14 @@ import java.util.Map;
  * @Version:1.0
  * @Description:
  */
+/**
+ * 
+ * @author Darren
+ *
+ */
 public interface UserDao {
 
-	
-	public 	List<Map<String, Object>> getAll();
+	public int register();
+
+	public int queryUser();
 }

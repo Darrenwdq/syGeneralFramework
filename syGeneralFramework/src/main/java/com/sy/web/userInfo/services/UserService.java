@@ -1,8 +1,5 @@
 package com.sy.web.userInfo.services;
 
-import java.util.List;
-import java.util.Map;
-
 /**
  * @Author:liangjilong
  * @Date:2015年10月29日-下午3:45:04
@@ -11,5 +8,6 @@ import java.util.Map;
  * @Description:
  */
 public interface UserService   {
-	public 	List<Map<String, Object>> getAll();
+	public 	Boolean queryUser();
+	public 	Boolean register();
 }

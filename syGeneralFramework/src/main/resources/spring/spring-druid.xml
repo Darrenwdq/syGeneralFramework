@@ -20,7 +20,7 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<!-- 配置druid数据源 -->
-	<bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+	<bean name="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource"
 		init-method="init" destroy-method="close">
 		<!-- 数据库连接基础信息 -->
 		<property name="url" value="${jdbc_url}" />

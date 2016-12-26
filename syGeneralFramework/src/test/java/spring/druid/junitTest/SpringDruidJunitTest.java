@@ -20,19 +20,19 @@ import com.alibaba.druid.pool.DruidDataSource;
 @ContextConfiguration(value = { "classpath:spring/spring.xml" })
 public class SpringDruidJunitTest {
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	private JdbcTemplate druidJDBCTemplate;
 
 	@Autowired
 	private DruidDataSource dataSource;
 
 	@Test
 	public void testInsert() {
-		jdbcTemplate.execute("insert into spring_druid (test_name) values ('spring')");
+		druidJDBCTemplate.execute("insert into spring_druid (test_name) values ('spring')");
 	}
 
 	@Test
 	public void testQuery() {
-		Map<String, Object> map = jdbcTemplate.queryForMap("select * from spring_druid limit 1");
+		Map<String, Object> map = druidJDBCTemplate.queryForMap("select * from spring_druid limit 1");
 		System.out.println(map);
 	}
 

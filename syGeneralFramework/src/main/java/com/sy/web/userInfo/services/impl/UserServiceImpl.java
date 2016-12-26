@@ -1,8 +1,5 @@
 package com.sy.web.userInfo.services.impl;
 
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +15,25 @@ import com.sy.web.userInfo.services.UserService;
  */
 @Service
 @SuppressWarnings("all")
-public class UserServiceImpl implements UserService  {
+public class UserServiceImpl implements UserService {
 
 	@Autowired UserDao userDao;
+
+
+	@Override
+	public Boolean queryUser() {
+		int count = userDao.queryUser();
+		System.out.println(count);
+		if (count != 0)
+			return true;
+		else
+			return false;
+	}
 	
-	public List<Map<String, Object>> getAll() {
-		return userDao.getAll();
+	public Boolean register() {
+		int count = userDao.queryUser();
+		
+		return false;
 	}
 
 }
