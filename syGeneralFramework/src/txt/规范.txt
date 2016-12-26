@@ -1,0 +1,16 @@
+规范：
+	框架：Spring-mvc
+	数据库：MySQL
+	编码格式：UTf-8
+	构建方式：maven
+	日志级别：info
+	数据链接池：druid
+	访问链接：http://localhost:8080/syGeneralFramework/druid/sql.html
+	个各类都要有日志，都要有捕捉异常的信息。
+	日志整个工程使用 "	private static final Logger logger = Logger.getLogger(UserInfo.class);"这个方式。
+	
+知识点：在Controller中的用法
+	1. 使用RequestMapping注解来映射请求的URL 2. 返回值会通过视图解析器解析为实际的物理视图,
+	 对于InternalResourceViewResolver视图解析器，会做如下解析 通过prefix+returnVal+suffix
+	这样的方式得到实际的物理视图，然后会转发操作 "/WEB-INF/views/${return}.jsp"
+	 
