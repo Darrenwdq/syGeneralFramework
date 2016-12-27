@@ -3,7 +3,9 @@ package com.sy.web.userInfo.services.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sy.modules.pojo.User;
+import com.sy.commons.persistence.dao.impl.BaseDaoSupport;
+import com.sy.commons.persistence.dao.impl.EntityDaoSupport;
+import com.sy.commons.pojo.User;
 import com.sy.web.userInfo.dao.UserDao;
 import com.sy.web.userInfo.services.UserService;
 
@@ -15,7 +17,7 @@ import com.sy.web.userInfo.services.UserService;
  */
 @Service
 @SuppressWarnings("all")
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl  extends BaseDaoSupport implements UserService {
 
 	@Autowired
 	UserDao userDao;

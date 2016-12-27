@@ -1,6 +1,6 @@
 package com.sy.web.userInfo.services;
 
-import com.sy.modules.pojo.User;
+import com.sy.commons.pojo.User;
 
 /**
  * @Author:Darren

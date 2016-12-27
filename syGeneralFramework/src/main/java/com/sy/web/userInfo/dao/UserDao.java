@@ -1,6 +1,7 @@
 package com.sy.web.userInfo.dao;
 
-import com.sy.modules.pojo.User;
+import com.sy.commons.persistence.dao.EntityDao;
+import com.sy.commons.pojo.User;
 
 /**
  * @Author:Darren
@@ -8,7 +9,7 @@ import com.sy.modules.pojo.User;
  * @Version:1.0
  * @Description:Dao接口
  */
-public interface UserDao {
+public interface UserDao extends EntityDao<User>{
 	
 	public int queryUser(User user);
 

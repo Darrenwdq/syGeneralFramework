@@ -1,5 +1,7 @@
 package com.sy.web.userInfo.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,7 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.sy.modules.pojo.User;
+import com.sy.commons.pojo.User;
 import com.sy.web.userInfo.services.UserService;
 
 /**
@@ -18,19 +20,20 @@ import com.sy.web.userInfo.services.UserService;
  */
 
 @Controller
-public class UserInfo {
+public class UserController {
 	@Autowired
 	UserService userService;// 通过注解的方式注入
 
-	private static final Logger logger = Logger.getLogger(UserInfo.class);
+	private static final Logger logger = Logger.getLogger(UserController.class);
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	private String login(User user, ModelMap modelMap) {
+	private String login(HttpSession session, User user, ModelMap modelMap) {
 		String returnStr = "userInfo/login";
 		logger.info(user.getUsername() + " 进入登录页面方法");
 		Boolean isTrue = userService.queryUser(user);
 		if (isTrue) {
 			logger.info("登录成功");
+			session.setAttribute("username", user.getUsername());
 			returnStr = "success";
 		} else {
 			logger.info("登录失败");

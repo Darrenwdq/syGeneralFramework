@@ -20,7 +20,6 @@ import com.sy.commons.persistence.builder.SimpleSqlBuilder;
 import com.sy.commons.persistence.condition.Condition;
 import com.sy.commons.persistence.dao.BaseDao;
 import com.sy.commons.persistence.interfaces.MapRowMapper;
-import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 /**
  * 数据查询DAO支持类
@@ -91,8 +90,7 @@ public abstract class BaseDaoSupport implements BaseDao, InitializingBean {
 		//初始化namedParameterJdbcTemplate
 		namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate.getDataSource());
 		//初始化pagingSqlBuilder
-		pagingSqlBuilder = new PagingSqlBuilder(((ComboPooledDataSource)
-				jdbcTemplate.getDataSource()).getJdbcUrl().replaceAll("://.*$", ""));
+//		pagingSqlBuilder = new PagingSqlBuilder(((ComboPooledDataSource)jdbcTemplate.getDataSource()).getJdbcUrl().replaceAll("://.*$", ""));
 	}
 	
 	@Override

@@ -1,4 +1,4 @@
-package com.sy.modules.pojo;
+package com.sy.commons.pojo;
 
 import com.sy.commons.persistence.Entity;
 import com.sy.commons.persistence.annotation.Column;
