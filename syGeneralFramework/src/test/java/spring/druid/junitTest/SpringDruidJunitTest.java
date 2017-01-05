@@ -25,18 +25,18 @@ public class SpringDruidJunitTest {
 	@Autowired
 	private DruidDataSource dataSource;
 
-	@Test
+//	@Test
 	public void testInsert() {
 		druidJDBCTemplate.execute("insert into spring_druid (test_name) values ('spring')");
 	}
 
 	@Test
 	public void testQuery() {
-		Map<String, Object> map = druidJDBCTemplate.queryForMap("select * from spring_druid limit 1");
+		Map<String, Object> map = druidJDBCTemplate.queryForMap("select * from user limit 1");
 		System.out.println(map);
 	}
 
-	@Test
+//	@Test
 	public void testDruidDataSource() throws SQLException {
 		Connection conn = dataSource.getConnection();
 		conn.setAutoCommit(false);
@@ -45,7 +45,7 @@ public class SpringDruidJunitTest {
 		pstat.setString(1, "druid");
 		pstat.executeUpdate();
 		Statement stat = conn.createStatement();
-		ResultSet rs = stat.executeQuery("select * from spring_druid");
+		ResultSet rs = stat.executeQuery("select * from user");
 		conn.commit();
 		while (rs.next()) {
 			System.out.println("id=" + rs.getInt("id") + ", test_name=" + rs.getString("test_name"));

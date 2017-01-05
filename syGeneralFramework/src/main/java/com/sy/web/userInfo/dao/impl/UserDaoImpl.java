@@ -1,7 +1,11 @@
 package com.sy.web.userInfo.dao.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
+import com.sy.commons.lang.exception.DaoAccessException;
+import com.sy.commons.persistence.dao.BaseDao;
 import com.sy.commons.persistence.dao.impl.EntityDaoSupport;
 import com.sy.commons.pojo.User;
 import com.sy.web.userInfo.dao.UserDao;
@@ -13,7 +17,7 @@ import com.sy.web.userInfo.dao.UserDao;
  * @Description:Dao实现类主要是放SQL语句的查询
  */
 @Repository
-public class UserDaoImpl extends EntityDaoSupport<User> implements UserDao {
+public class UserDaoImpl extends EntityDaoSupport<User> implements UserDao,BaseDao {
 
 //	@Autowired
 //	private JdbcTemplate druidJDBCTemplate;
@@ -27,13 +31,16 @@ public class UserDaoImpl extends EntityDaoSupport<User> implements UserDao {
 	
 	
 	public int queryUser(User user) {
-		
-		
-		
+		String sql = "SELECT count(*) id FROM USER WHERE username = ? AND PASSWORD = ?";
+		Object[] obj = { user.getUsername(), user.getDescribe() };
+		System.out.println(user.getUsername() + user.getDescribe());
+		try {
+			List userList = search(sql, obj);
+			System.out.println(userList.size());
+		} catch (DaoAccessException e) {
+			e.printStackTrace();
+		}
 		return 0;
-//		Map<String, Object> map = druidJDBCTemplate.queryForMap("SELECT count(*) id FROM USER WHERE username ='" + user.getUsername() + "' AND PASSWORD ='" + user.getDescribe() + "'");
-//		System.out.println(map.get("id"));
-//		return Integer.valueOf(map.get("id").toString());
 	}
 
 	public int register() {

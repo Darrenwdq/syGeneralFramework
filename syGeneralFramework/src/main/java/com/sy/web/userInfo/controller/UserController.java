@@ -27,7 +27,7 @@ public class UserController {
 	private static final Logger logger = Logger.getLogger(UserController.class);
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	private String login(HttpSession session, User user, ModelMap modelMap) {
+	private String login(HttpSession session, User user) {
 		String returnStr = "userInfo/login";
 		logger.info(user.getUsername() + " 进入登录页面方法");
 		Boolean isTrue = userService.queryUser(user);
