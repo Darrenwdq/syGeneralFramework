@@ -6,6 +6,7 @@
 	日志级别：info
 	数据链接池：druid
 	访问链接：http://localhost:8080/syGeneralFramework/druid/sql.html
+	登录的用户名密码是在web.xml中配置的，现在的用户名和密码是druid
 	个各类都要有日志，都要有捕捉异常的信息。
 	日志整个工程使用 "	private static final Logger logger = Logger.getLogger(UserInfo.class);"这个方式。
 	
