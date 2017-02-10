@@ -1,10 +1,9 @@
 package com.sy.web.userInfo.dao.impl;
 
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.sy.commons.lang.exception.DaoAccessException;
 import com.sy.commons.persistence.dao.BaseDao;
 import com.sy.commons.persistence.dao.impl.EntityDaoSupport;
 import com.sy.commons.pojo.User;
@@ -19,8 +18,8 @@ import com.sy.web.userInfo.dao.UserDao;
 @Repository
 public class UserDaoImpl extends EntityDaoSupport<User> implements UserDao,BaseDao {
 
-//	@Autowired
-//	private JdbcTemplate druidJDBCTemplate;
+	@Autowired
+	private JdbcTemplate druidJDBCTemplate;
 
 /*	public int queryUser(User user) {
 		String sql = simpleSqlBuilder.getQueryAllSql();
@@ -32,20 +31,20 @@ public class UserDaoImpl extends EntityDaoSupport<User> implements UserDao,BaseD
 	
 	public int queryUser(User user) {
 		String sql = "SELECT count(*) id FROM USER WHERE username = ? AND PASSWORD = ?";
-		Object[] obj = { user.getUsername(), user.getDescribe() };
+		Object[] obj = {user.getUsername(), user.getDescribe() };
 		System.out.println(user.getUsername() + user.getDescribe());
-		try {
-			List userList = search(sql, obj);
-			System.out.println(userList.size());
-		} catch (DaoAccessException e) {
-			e.printStackTrace();
-		}
-		return 0;
+//		try {
+//			List userList = search(sql, obj);
+//		} catch (DaoAccessException e) {
+//			e.printStackTrace();
+//		}
+		return druidJDBCTemplate.queryForInt(sql, obj);
 	}
 
 	public int register() {
 		System.out.println("这是注册！");
 		return 0;
 	}
+	
 
 }
